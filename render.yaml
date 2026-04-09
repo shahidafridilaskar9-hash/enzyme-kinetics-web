@@ -1,7 +1,7 @@
 services:
-- type: web
-  name: enzyme-kinetics-web
-    env: docker
-      envVars:
-        - key: PYTHON_VERSION
-            value: 3.10.0
+  - type: web
+      name: enzyme-kinetics-web
+          env: docker
+              envVars:
+                    - key: PYTHON_VERSION
+                            value: 3.10.0
