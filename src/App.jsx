@@ -28,8 +28,7 @@ function App() {
   const simulateKinetics = async () => {
     setLoading(true)
     try {
-      const baseUrl = import.meta.env.VITE_API_URL || 'http://localhost:8000';
-      const response = await fetch(`${baseUrl}/simulate`, {
+      const response = await fetch('/simulate', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

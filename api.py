@@ -3,6 +3,8 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 import numpy as np
 from scipy.integrate import odeint
+import os
+from fastapi.staticfiles import StaticFiles
 
 app = FastAPI(title="EnzymeKinetics.io API")
 
@@ -69,3 +71,7 @@ def simulate_kinetics(req: SimulationRequest):
         },
         "chartData": chart_data
     }
+
+# Serve static files built by Vite
+if os.path.isdir("dist"):
+    app.mount("/", StaticFiles(directory="dist", html=True), name="static")
